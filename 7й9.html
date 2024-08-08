@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Круговое кольцо</title>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.ring-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 10px solid #ddd; /* Серый цвет внешнего круга */
+    animation: ring-fill 60s linear forwards; /* Анимация заполнения */
+}
+
+.ring-fill {
+    background-color: #007bff; /* Синий цвет заполнения */
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 50%, 100% 50%, 50% 100%);
+}
+
+@keyframes ring-fill {
+    0% {
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
+    }
+    100% {
+        clip-path: polygon(50% 50%, 100% 50%, 50% 100%);
+    }
+}
+</style>
+</head>
+<body>
+<div class="ring-container">
+    <div class="ring"></div>
+</div>
+</body>
+</html>
